@@ -7,45 +7,43 @@ API для работы с проектом YaMDb
 Python 3.7 Django 2.2.16
 
 ### Как запустить проект:
-Клонировать репозиторий и перейти в него в командной строке:
+- Для развёртывания проекта необходимо скачать его в нужную вам директорию, например:
 
-```
-git clone https://github.com/Koloif/api_yamdb.git
-```
-```
-cd api_yamdb
-```
-Cоздать и активировать виртуальное окружение:
+ git clone git@github.com:Koloif/infra_sp2.git 
 
-```
-python3 -m venv venv
-```
+- При работе с проектом понадобится Docker настольная или консольная версия
 
-```
-source venv/scripts/activate
-```
+- В директории infra создайте файл .env с переменными окружения для работы с базой данных:
 
-```
-python3 -m pip install --upgrade pip
-```
+DJANGO_KEY='your Django secret key'
+DB_ENGINE=django.db.backends.postgresql # БД
+DB_NAME=postgres # имя БД
+POSTGRES_USER=postgres # логин для подключения к БД
+POSTGRES_PASSWORD=postgres # пароль для подключения к БД 
+DB_HOST=db # название контейнера
+DB_PORT=5432 # порт для подключения к БД
 
-Установить зависимости из файла requirements.txt:
 
-```
-pip install -r requirements.txt
-```
+- Из папки 
+ infra/ 
+ разверните контейнеры в новой структуре:
 
-Выполнить миграции:
+- Для запуска необходимо выполнить из директории с проектом команду:
 
-```
-python3 manage.py migrate
-```
+ docker-compose up 
 
-Запустить проект:
+- Теперь в контейнере web нужно выполнить миграции:
 
-```
-python3 manage.py runserver
-```
+ docker-compose exec web python manage.py migrate 
+
+- Создать суперпользователя:
+
+ docker-compose exec web python manage.py createsuperuser 
+
+- Собрать статику:
+
+ docker-compose exec web python manage.py collectstatic --no-input 
+
 ### Примеры запросов к API:
   1) Запрос на регистрацию:
   > _POST_ http://127.0.0.1:8000/api/v1/auth/signup/
@@ -79,7 +77,8 @@ python3 manage.py runserver
   > "token":       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2NjI5MDUzMiwianRpIjoiOTJiNDlmNWZlNzk4NDU2NmIwMjIzN2MzMDExZTU5NjgiLCJ1c2VyX2lkIjoxfQ.TWq_zyQGRmFNJhBDOCXNEtv-6fc9fEn_97vS-ZfOECE"
   >}
 
-### А кто трудился над  проектом?
+### А кто трудился над проектом?
  - Семёнов Кирилл https://github.com/Semyonov-K
  - Веселова Ксения https://github.com/ksuveselaya
  - Якшин Василий https://github.com/Koloif
+ ![yamdb workflow](https://github.com/koloif/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
