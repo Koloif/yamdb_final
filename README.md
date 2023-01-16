@@ -81,4 +81,5 @@ DB_PORT=5432 # порт для подключения к БД
  - Семёнов Кирилл https://github.com/Semyonov-K
  - Веселова Ксения https://github.com/ksuveselaya
  - Якшин Василий https://github.com/Koloif
- ![yamdb workflow](https://github.com/koloif/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
+
+![yamdb workflow](https://github.com/koloif/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
