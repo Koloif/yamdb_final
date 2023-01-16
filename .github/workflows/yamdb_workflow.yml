@@ -44,9 +44,9 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2 
         with:
-          context: base
           push: true
           tags: koloif/api_yamdb:latest
+          file: api_yamdb/Dockerfile
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
