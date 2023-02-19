@@ -13,7 +13,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '84.252.139.54',
     'localhost',
-    'koloif0.ddns.net'
+    'koloif0.ddns.net',
+    '*',
 ]
 
 
