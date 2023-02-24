@@ -1,4 +1,5 @@
 ### API для проекта YaMDb
+Сайт http://koloif0.ddns.net/
 
 ## Описание
 API для работы с проектом YaMDb
@@ -46,7 +47,7 @@ DB_PORT=5432 # порт для подключения к БД
 
 ### Примеры запросов к API:
   1) Запрос на регистрацию:
-  > _POST_ http://127.0.0.1:8000/api/v1/auth/signup/
+  > _POST_ http://koloif0.ddns.net/api/v1/auth/signup/
   > 
   > Content-Type: application/json
   >
@@ -62,7 +63,7 @@ DB_PORT=5432 # порт для подключения к БД
   > "username": "user"
   >}
   2) Запрос на получения токена (confirmation_code получаем с указанной выше почты):
-  > POST http://127.0.0.1:8000/api/v1/users/
+  > POST http://koloif0.ddns.net/api/v1/users/
   > 
   > Content-Type: application/json
   > 
